@@ -24,6 +24,7 @@ switch (command2) {
             if (error) throw error;
             console.log(tweets);
         });
+        break;
     case 'spotify-this-song':
         spotify.search({ type: 'track', query: command3 }, function(err, data) {
             if (err) {
@@ -31,6 +32,7 @@ switch (command2) {
             }
             console.log(JSON.stringify(data, null, 2));
         });
+        break;
     case 'movie-this':
         request("http://www.omdbapi.com/?t=remember+the+titans&y=&plot=short&apikey=trilogy", function(error, response, body) {
             if (!error && response.statusCode === 200) {
@@ -44,6 +46,7 @@ switch (command2) {
                 console.log("The movie was released in: " + JSON.parse(body).Year);
             }
         });
+        break;
     case 'do-what-it-says':
         fs.readFile("random.txt", "utf8", function(error, data) {
 
@@ -85,7 +88,6 @@ switch (command2) {
                         }
                     });
             }
-
         });
-
+        break;
 }
